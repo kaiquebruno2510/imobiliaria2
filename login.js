@@ -8,8 +8,9 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function testarConexao() {
   const { data, error } = await supabase.from("users").select("*");
-  if (error) console.error('Erro:', error);
-  else console.log("Dados:", data);
+  if (error) { 
+    console.error("Erro de conexão", error.message);}
+  else{ console.log("conexão correta Dados:", data);
 }
-
+}
 testarConexao();
